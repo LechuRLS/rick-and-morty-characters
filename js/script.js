@@ -20,8 +20,8 @@ function fetchPage(page) {
         const li = document.createElement("li");
         li.innerHTML = `
          <img src="${personaje.image}" alt ${personaje.name}">
-         <h3>${personaje.name}</h3>
-         <p>${personaje.species}</p>
+         <h3>Name: ${personaje.name}</h3>
+         <p>Species: ${personaje.species}</p>
         `;
         
         lista.appendChild(li);
@@ -35,6 +35,7 @@ fetchPage(pageActual);
 
 const botonPrev = document.getElementById("prev-page")
 const botonNext = document.getElementById("next-page")
+const home = document.getElementById("home")
 
 botonPrev.addEventListener("click", () => {
     if (pageActual > 1) {
@@ -47,3 +48,8 @@ botonNext.addEventListener("click", () => {
     pageActual++;
     fetchPage(pageActual)
 });
+
+home.addEventListener("click", () => {
+    pageActual = 1
+    fetchPage(pageActual)
+})
